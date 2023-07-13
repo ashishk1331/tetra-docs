@@ -1,0 +1,32 @@
+# Callouts
+
+`Callout` are special text displayed inside a `span` tag along with a image or here a `svg` star. These blocks are used to stand out the text, like the tip below.
+
+The element receives `text`, `callout_image` and `key` as parameter and should return node type value.
+`callout_image` is an element itself and should return a Node type value.
+:::tip Remember
+Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
+:::
+
+## Pre-Defined Syntax
+
+```jsx
+	blocks: {
+		callout: (text, callout_image, key) => (
+				<span key={key}>
+					{callout_image()}
+					<p>{text}</p>
+				</span>
+		),
+		callout_image: () => (
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 256 256"
+				width="32"
+				height="32"
+			>
+				<path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.93,166,26.5,143a16,16,0,0,1,0-30L90,89.93,113,26.5a16,16,0,0,1,30,0L166.07,90,229.5,113A15.79,15.79,0,0,1,240,128Z"></path>
+			</svg>
+		),
+	}
+```

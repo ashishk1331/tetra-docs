@@ -1,0 +1,71 @@
+---
+title: Intro
+sidebar_position: 1
+---
+
+First things first,
+
+-   It isn't bundled with `@notion/client`. Hence, you need to require it externally.
+-   It renders pre-cooked API data into pure html tags.
+-   It follows keyed approach.
+    > Every element is rendered with a unique key to avoid UI mis-match or clashes.
+-   All the blocks are configurable and can be replaced or extended.
+
+## Installation
+
+### Bootstrapped Installation
+
+The best way to get started is to clone the [NEXT.JS and tailwind CSS starter template](https://github.com/ashishk1331/tetra-example#readme) from Github and follow the steps given in README.
+
+```bash
+git clone https://github.com/ashishk1331/tetra-example.git
+```
+
+### Manual Installation
+
+To add Tetra-Pack to an existing project, simply install it via npm
+
+```bash
+npm install tetrapack
+```
+
+:::tip Remember
+It does not concern TetraPack how you obtain your notion data. You can use any pattern or technique to acquire the same.
+:::
+Here, we'll show one of the ways to get Notion page data and render it using TetraPack.
+
+1. First install [notion client](https://www.npmjs.com/package/@notionhq/client) as the basic dependency
+    ```bash
+    npm i @notionhq/client
+    ```
+1.  Get your integration token from [notion developers](https://www.notion.so/my-integrations) dashboard.
+1.  Copy the Page ID of the notion page you want to render, from the share option at the top right corner.
+    PAGE ID = https://www.notion.so/Tetra-Pack-401aa30875db4f97b2d4e698b328ad45?pvs=4
+    This is your id = 401aa30875db4f97b2d4e698b328ad45
+
+1.  Now create a .env file at the root level, having all details.
+    ```
+    NOTION_TOKEN = <NOTION_INTEGRATION_TOKEN>
+    NOTION_PAGE_ID = <NOTION_PAGE_ID>
+    ```
+1. Create a function to fetch page data
+    ```js
+    async function getBlocks(pageId) {
+        const notion = new Client({
+            auth: process.env.NOTION_TOKEN,
+        });
+
+        let data = await notion.blocks.children.list({
+            block_id: pageId,
+            page_size: 50,
+        });
+
+        return data.results;
+    }
+    ```
+1.  Now pass the blocks array, returned from the fetch function, as the prop to the Parser.
+    ```jsx
+    <Parser blocks={blocks} />
+    ```
+
+*And voila you've rendered whole page using TetraPack!*
