@@ -1,41 +1,20 @@
-# Website
+![Banner Image](https://raw.githubusercontent.com/ashishk1331/tetra-example/main/public/banner.png)
+<br><br>
+# Tetra Pack
+A simple and configurable notion API parser for react projects.
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+## Features -
+- Robust and granular Parser
+- Keyed Approach
+- Configurable blocks and annotations
+- Loose Type Checking
 
-### Installation
+# Tetra Pack
 
-```
-$ yarn
-```
+First things first,
 
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+-   It isn't bundled with `@notion/client`. Hence, you need to require it externally.
+-   It renders pre-cooked API data into pure html tags.
+-   It follows keyed approach.
+    > Every element is rendered with a unique key to avoid UI mis-match or clashes.
+-   All the blocks are configurable and can be replaced or extended.
