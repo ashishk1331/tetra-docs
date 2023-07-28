@@ -1,3 +1,5 @@
+import { Callout } from 'nextra/components'
+
 # To-Do
 
 To-do block is a combination of read-only `checkbox` accompanied by corresponding text wrapped in `paragraph`.
@@ -5,9 +7,9 @@ To-do block is a combination of read-only `checkbox` accompanied by correspondin
 The checkbox should always be set to `readOnly`, making it toggle won't update the checbox state back in notion page.
 
 The element receives `text`, `checked` and `key` as parameter and should return node type value.
-:::tip Remember
-Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
-:::
+<Callout type="info" emoji="ℹ️">
+  Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
+</Callout>
 
 ## Pre-Defined Syntax
 

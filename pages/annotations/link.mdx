@@ -1,0 +1,23 @@
+import { Callout } from "nextra/components";
+
+# Links
+
+The `links` will be rendered using the classic `<a />` tag, anywhere in the document.
+
+The element receives `text`, `href` which the url to the target and `key` as parameter and should return node type value.
+
+<Callout type="info" emoji="ℹ️">
+  Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
+</Callout>
+
+## Pre-Defined Syntax
+
+```jsx
+	annotations: {
+		link: (text, href, key) => (
+			<a href={href} key={key}>
+				{text}
+			</a>
+		),
+	}
+```

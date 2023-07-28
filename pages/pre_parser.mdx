@@ -1,0 +1,28 @@
+import { Callout } from "nextra/components";
+
+# Pre Parser
+
+Pre Parser as the name suggests is a step we take before passing data to the `<Parser />` itself.
+Main objective here is to collect children of blocks like `table` or `nested lists`, because the `<Parser />` Component renders the passed data only and if any complex blocks are found they are silently overlooked.
+
+<Callout type="info" emoji="ℹ️">
+If want to render `table` or `nested lists`, this step is mandatory.
+</Callout>
+
+## Implementation
+
++ It takes two parameters, that are `blocks` the original blocks fetched and `getBlocks` function itself. 
++ `usePreParser` is a async function and should be handled carefully to avoid unnecessary errors.
+
+```jsx
+import { Parser, usePreParser } from "tetrapack";
+
+export default async function Home() {
+    let blocks = await getBlocks(process.env.NOTION_PAGE_ID);
+    blocks = await usePreParser(blocks, getBlocks);
+
+    return (
+    	<Parser blocks={blocks} />
+    );
+}
+```

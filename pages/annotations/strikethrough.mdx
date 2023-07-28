@@ -1,0 +1,23 @@
+import { Callout } from "nextra/components";
+
+# Strike Through
+
+All the text formatted as `striked` will be rendered using `<s />` tag, anywhere in the document.
+
+The element receives `text` and `key` as parameter and should return node type value.
+
+<Callout type="info" emoji="ℹ️">
+  Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
+</Callout>
+
+## Pre-Defined Syntax
+
+```jsx
+	annotations: {
+		strikethrough: (text, key) => (
+			<s key={key}>
+				{text}
+			</s>
+		),
+	}
+```

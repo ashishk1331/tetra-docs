@@ -1,0 +1,46 @@
+import { Callout } from "nextra/components";
+
+# Raw Table
+
+<Callout type="info" emoji="ℹ️">
+`usePreParser` hook should be used to fetch all rows of the table.
+</Callout>
+
+<Callout type="info" emoji="ℹ️">
+	If provided, all the tables will be rendered using raw table only.
+</Callout>
+
+By default, raw table doesn't works out of the box and is mapped to null. If declared, all tabled will be rendered using the `raw_table_row` and will be wrapped inside `raw_table_wrapper`. 
+
+If raw_table_wrapper is not provided, then all the table rows will be rendered as a list without any parent node.
+
+## Pre-Defined Syntax
+
+```jsx
+	blocks: {
+		raw_table_row: null,
+		raw_table_wrapper: null,
+	}
+```
+
+## Usage
+
+```jsx
+	blocks: {
+        raw_table_row: (cols, key) => (
+            <li key={key}>
+                <h1>{cols[0]}</h1>
+                <p>{cols[1]}</p>
+                <em>{cols[2]}</em>
+            </li>
+        ),
+        raw_table_wrapper: (items, key) => <ul key={key}>{items}</ul>
+    },
+```
+
+1. **`raw_table_row`**
+	It get two parameters `cols` and `key`. Cols is the array of table row data without column names.
+	First parameter length is equal to the table width.
+
+1. **`raw_table_wrapper`**
+	The wrapper element for all rows rendered using `raw_table_row`.

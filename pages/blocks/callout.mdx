@@ -1,12 +1,14 @@
+import { Callout } from 'nextra/components'
+
 # Callouts
 
 `Callout` are special text displayed inside a `span` tag along with a image or here a `svg` star. These blocks are used to stand out the text, like the tip below.
 
 The element receives `text`, `callout_image` and `key` as parameter and should return node type value.
 `callout_image` is an element itself and should return a Node type value.
-:::tip Remember
-Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
-:::
+<Callout type="info" emoji="ℹ️">
+  Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
+</Callout>
 
 ## Pre-Defined Syntax
 

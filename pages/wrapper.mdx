@@ -1,0 +1,17 @@
+import { Callout } from "nextra/components";
+
+# Wrapper
+
+The parent container for all the parsed data. By default, the output is *`not wrapped`* inside any tag.
+
+The element receives only `text`, which is an array of React nodes, as parameter and should return node type value.
+
+<Callout type="info" emoji="ℹ️">
+  Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
+</Callout>
+
+## Pre-Defined Syntax
+
+```jsx
+	wrapper: (text) => text,
+```

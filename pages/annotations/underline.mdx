@@ -1,0 +1,23 @@
+import { Callout } from "nextra/components";
+
+# Underline
+
+All the text formatted as `underline` will be rendered using `<u />` tag, anywhere in the document.
+
+The element receives `text` and `key` as parameter and should return node type value.
+
+<Callout type="info" emoji="ℹ️">
+  Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
+</Callout>
+
+## Pre-Defined Syntax
+
+```jsx
+	annotations: {
+		underline: (text, key) => (
+			<u key={key}>
+				{text}
+			</u>
+		),
+	}
+```

@@ -1,0 +1,91 @@
+import { Callout } from "nextra/components";
+
+# Table
+
+<Callout type="info" emoji="ℹ️">
+`usePreParser` hook should be used to fetch all rows of the table.
+</Callout>
+
+The `backbone` of tetra-pack is actually the implementation of table. Tetra-pack divides tables into most basic html tags.
+All the tags are mentioned below.
+
+## Pre-Defined Syntax
+
+```jsx
+	blocks: {
+		table: (text, key) => <table key={key}>{text}</table>,
+		table_cell: (text, key) => <td key={key}>{text}</td>,
+		table_row: (text, key) => <tr key={key}>{text}</tr>,
+		table_header_cell: (text, key) => <th key={key}>{text}</th>,
+		table_head: (text, key) => <thead key={key}>{text}</thead>,
+		table_body: (text, key) => <tbody key={key}>{text}</tbody>,
+	}
+```
+
+## Table Anatomy
+Basic table structure looks like:
+```jsx
+	<table>
+		// table head
+		<thead>
+			<tr>
+				<th>wrestler</th>
+				<th>origin</th>
+				<th>finisher</th>
+			</tr>
+		</thead>
+
+		// table body
+		<tbody>
+			<tr>
+				<td>Randy Ortan</td>
+				<td>Texas</td>
+				<td>RKO</td>
+			</tr>
+			<tr>
+				<td>Steve Cold Austin</td>
+				<td>Austin</td>
+				<td>Stone Cold Stunner</td>
+			</tr>
+		</tbody>
+	</table>	
+```
+
+All the elements used to construct a table include,
+
+1. **Table Wrapper** <br/>
+	The wrapper tag for all the rows. It is the basic `<table />` tag.
+	```jsx
+	table: (text, key) => <table key={key}>{text}</table>,
+	```
+
+1. **Table Simple Cell** <br/>
+	All the data, i.e. the table cells except header cells, are wrapped inside basic `<td />` tag.
+	```jsx
+	table_cell: (text, key) => <td key={key}>{text}</td>,
+	```
+
+1. **Table Header Cell** <br/>
+	The data for header row or column is wrapped inside `<th />` tag.
+	```jsx
+	table_header_cell: (text, key) => <th key={key}>{text}</th>,
+	```
+
+1. **Table Row** <br/>
+	All the cells of a simple table row are wrapped inside `<tr />` tag.
+	```jsx
+	table_row: (text, key) => <tr key={key}>{text}</tr>,
+	```
+
+1. **Table Head** <br/>
+	The Header row of the table is wrapped inside `<thead />` tag.
+	```jsx
+	table_header_cell: (text, key) => <th key={key}>{text}</th>,
+	```
+
+1. **Table Body** <br/>
+	All the rows except header row are clubbed together and wrapped inside `<tbody />` tag.
+	```jsx
+	table_header_cell: (text, key) => <th key={key}>{text}</th>,
+	```
+

@@ -1,0 +1,69 @@
+import { Callout } from "nextra/components";
+
+# Mark
+
+This is the most interesting bit of all the parsing. This property handles the *`foreground and background colors`* which are being applied to the text. Hence, such formatted text is wrapped inside a `<mark />` tag and suitable styles are applied on it via style object.
+
+The element receives `text`, `style` object which conatins the foreground and background color styles and `key` as parameter and should return node type value.
+
+<Callout type="info" emoji="ℹ️">
+  Node Type Value is anything that can be rendered: numbers, strings, elements or an array.
+</Callout>
+
+## Pre-Defined Syntax
+
+```jsx
+	annotations: {
+		mark: (text, style, key) => (
+			<mark key={key} style={style}>
+				{text}
+			</mark>
+		),
+	}
+```
+
+<Callout type="info" emoji="ℹ️">
+	Notion provides 10 color options including default color for text formatting. These are `blue`, `brown`, `gray`, `green`, `orange`, `pink`, `purple`, `red` and `yellow`.
+</Callout>
+
+## Change Fore-Ground Colors
+All the colors for text are listed in `color` object inside `annotations` object. Every color can be over-written with a valid css color.
+
+```jsx
+	annotations: {
+		...,
+		color: {
+				default: "",
+				blue: "blue",
+				brown: "brown",
+				gray: "gray",
+				green: "green",
+				orange: "orange",
+				pink: "pink",
+				purple: "purple",
+				red: "red",
+				yellow: "yellow",
+			},
+	}
+```
+
+## Change Back-Ground Colors
+All the colors for text background are listed in `background` object inside `annotations` object. Every color property can be over-written with a valid css color.
+
+```jsx
+	annotations: {
+		...,
+		background: {
+				default: "",
+				blue: "blue",
+				brown: "brown",
+				gray: "gray",
+				green: "green",
+				orange: "orange",
+				pink: "pink",
+				purple: "purple",
+				red: "red",
+				yellow: "yellow",
+			},
+	}
+```

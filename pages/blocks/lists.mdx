@@ -1,0 +1,30 @@
+import { Callout } from "nextra/components";
+
+# Lists
+
+There are two types of lists: `bulleted_list` and `numbered_list`.
+The bulleted list is rendered using `<ul />` tag while the numbered list is rendered using `<ol />` tag. In turn, all the list items are rendered using `<li />` tag.
+
+**How parser interprets list items?** <br />
+All the consecutive list items having same list type are clubbed together and then send off to be rendered.
+
+<Callout type="info" emoji="ℹ️">
+`usePreParser` hook should be used to fetch all the nested items for the nested lists.
+</Callout>
+
+The element receives `text` and `key` as parameter and should return node type value.
+
+<Callout type="info" emoji="ℹ️">
+	Node Type Value is anything that can be rendered: numbers, strings, elements
+	or an array.
+</Callout>
+
+## Pre-Defined Syntax
+
+```jsx
+	blocks: {
+		list_item: (text, key) => <li key={key}>{text}</li>,
+		bulleted_list: (text, key) => <ul key={key}>{text}</ul>,
+		numbered_list: (text, key) => <ol key={key}>{text}</ol>,
+	}
+```
